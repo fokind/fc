@@ -4,7 +4,7 @@ sap.ui.define(
     "use strict";
 
     return {
-      renderer: function(oRm, oControl) {
+      render: function(oRm, oControl) {
         oRm.write("<svg");
         oRm.writeControlData(oControl);
         oRm.write(
