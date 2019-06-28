@@ -1,0 +1,18 @@
+<mvc:View xmlns:mvc="sap.ui.core.mvc" 
+  xmlns="sap.m" 
+  xmlns:fc="ui5lab.fc">
+  <VBox class="sapUiTinyMargin">
+    <fc:CandlestickChart candles="{/}" 
+      colorPositive="white" 
+      colorNegative="gray" 
+      padding="5 15 20 30">
+      <fc:candles>
+        <fc:Candle x="{time}" 
+          open="{open}" 
+          high="{high}" 
+          low="{low}" 
+          close="{close}"/>
+      </fc:candles>
+    </fc:CandlestickChart>
+  </VBox>
+</mvc:View>

@@ -1,0 +1,35 @@
+{
+  "name": "ui5lab-fc",
+  "version": "1.0.0",
+  "description": "Example UI5Lab library containing geometrical controls",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/fokind/fc.git"
+  },
+  "homepage": "https://github.com/fokind/fc",
+  "ui5lab": {
+    "namespace": "ui5lab.fc",
+    "icon": "business-objects-experience",
+    "displayName": "Financial Charts"
+  },
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "test": "echo \"Error: no test specified. Please add some.\" && exit 1",
+    "prepare": "node prepare.js",
+    "start": "ui5 serve -o",
+    "build": "ui5 build"
+  },
+  "dependencies": {
+    "@openui5/sap.m": "^1.67.1",
+    "@openui5/sap.ui.core": "^1.67.1",
+    "d3": "^5.9.7",
+    "moment": "^2.24.0"
+  },
+  "devDependencies": {
+    "eslint": "^6.0.1",
+    "@ui5/cli": "^1.5.4",
+    "fs-extra": "^8.0.1",
+    "ui5lab-browser": "^1.1.3"
+  }
+}
