@@ -1,4 +1,4 @@
-sap.ui.define(["jQuery.sap.global", "sap/ui/core/library"], function() {
+sap.ui.define(["sap/ui/core/library"], function() {
   "use strict";
 
   sap.ui.getCore().initLibrary({

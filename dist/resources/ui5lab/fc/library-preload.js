@@ -5,7 +5,7 @@ sap.ui.require.preload({
 },
 	"ui5lab/fc/CandlestickChartRenderer.js":function(){sap.ui.define([],function(){"use strict";return{renderer:function(t,s){t.write("<svg");t.writeControlData(s);t.write("><g class='fcChart sapUiChartGood'><g class='fcAxisLeft'></g><g class='fcAxisBottom'></g><g class='fcPlotArea'></g></g></svg>")}}},true);
 },
-	"ui5lab/fc/library.js":function(){sap.ui.define(["jQuery.sap.global","sap/ui/core/library"],function(){"use strict";sap.ui.getCore().initLibrary({name:"ui5lab.fc",dependencies:["sap.ui.core","sap.m"],types:[],interfaces:[],controls:["ui5lab.fc.CandlestickChart","ui5lab.fc.Candle"],elements:[],noLibraryCSS:true,version:"1.0.0"});return ui5lab.fc});
+	"ui5lab/fc/library.js":function(){sap.ui.define(["sap/ui/core/library"],function(){"use strict";sap.ui.getCore().initLibrary({name:"ui5lab.fc",dependencies:["sap.ui.core","sap.m"],types:[],interfaces:[],controls:["ui5lab.fc.CandlestickChart","ui5lab.fc.Candle"],elements:[],noLibraryCSS:true,version:"1.0.0"});return ui5lab.fc});
 },
 	"ui5lab/fc/manifest.json":'{"_version":"1.9.0","sap.app":{"id":"ui5lab.fc","type":"library","embeds":[],"applicationVersion":{"version":"1.0.0"},"title":"UI5 library: ui5lab.fc","description":"UI5 library: ui5lab.fc","resources":"resources.json","offline":true},"sap.ui":{"technology":"UI5","supportedThemes":[]},"sap.ui5":{"dependencies":{"minUI5Version":"1.67","libs":{"sap.ui.core":{"minVersion":"1.67.1"}}},"library":{"i18n":false,"css":false,"content":{"controls":["ui5lab.fc.CandlestickChart","ui5lab.fc.Candle"],"elements":[],"types":[],"interfaces":[]}}}}',
 	"ui5lab/fc/thirdparty/d3.js":function(){// https://d3js.org v5.9.2 Copyright 2019 Mike Bostock
