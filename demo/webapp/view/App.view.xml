@@ -3,9 +3,10 @@
   xmlns:fc="ui5lab.fc">
   <VBox class="sapUiTinyMargin">
     <fc:CandlestickChart candles="{/}" 
-      colorPositive="white" 
-      colorNegative="gray" 
-      padding="5 15 20 30">
+      height="800"
+      colorPositive="green" 
+      colorNegative="red"
+      padding="5 15 20 60">
       <fc:candles>
         <fc:Candle x="{time}" 
           open="{open}" 
