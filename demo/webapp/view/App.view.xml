@@ -3,7 +3,7 @@
   xmlns:fc="ui5lab.fc">
   <VBox class="sapUiTinyMargin">
     <fc:CandlestickChart candles="{/}" 
-      height="800"
+      height="600"
       colorPositive="green" 
       colorNegative="red"
       padding="5 15 20 60">
