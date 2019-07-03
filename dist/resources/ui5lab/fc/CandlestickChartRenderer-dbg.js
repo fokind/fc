@@ -8,7 +8,7 @@ sap.ui.define(
         oRm.write("<svg");
         oRm.writeControlData(oControl);
         oRm.write(
-          "><g class='fcChart sapUiChartGood'><g class='fcAxisLeft'></g><g class='fcAxisBottom'></g><g class='fcPlotArea'></g></g></svg>"
+          "><g class='fcChart'><g class='fcAxisLeft'></g><g class='fcAxisBottom'></g><g class='fcPlotArea'></g></g></svg>"
         );
         // d3 применяется только после рендера UI5
       }

@@ -14,7 +14,12 @@
   },
   "sap.ui": {
     "technology": "UI5",
-    "supportedThemes": []
+    "supportedThemes": [
+      "base",
+      "sap_belize",
+      "sap_belize_plus",
+      "sap_hcb"
+    ]
   },
   "sap.ui5": {
     "dependencies": {
@@ -27,7 +32,6 @@
     },
     "library": {
       "i18n": false,
-      "css": false,
       "content": {
         "controls": [
           "ui5lab.fc.CandlestickChart",

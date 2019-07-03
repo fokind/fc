@@ -1,0 +1,37 @@
+/* =========================== */
+/* Global CSS for 'base' theme */
+/* =========================== */
+.fcBullish {
+  fill: green;
+  stroke: green;
+}
+.fcBearish {
+  fill: red;
+  stroke: red;
+}
+.fcCandleBody {
+  stroke-width: 0;
+}
+.fcCandleShadow {
+  stroke-width: 1;
+}
+/* ===================================== */
+/* Quick Theming                         */
+/* ===================================== */
+/*
+ UX COLOR SET
+*/
+/* PRIMARY COLORS */
+/* ACCENT COLORS */
+/* LEGEND COLORS */
+/* Semantic Background Colors */
+/* Semantic Border Colors */
+/* Semantic Foreground Elements */
+/* Semantic Text */
+/* Semantic Foreground Colors */
+/* ===================================== */
+/* Expert Theming                        */
+/* ===================================== */
+
+/* Inline theming parameters */
+#sap-ui-theme-ui5lab\.fc{background-image:url('data:text/plain;utf-8,%7B%7D')}

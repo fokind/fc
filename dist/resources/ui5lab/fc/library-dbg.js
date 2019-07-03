@@ -1,4 +1,4 @@
-sap.ui.define(["sap/ui/core/library"], function() {
+sap.ui.define(["jquery.sap.global", "sap/ui/core/library"], function() {
   "use strict";
 
   sap.ui.getCore().initLibrary({
@@ -8,7 +8,7 @@ sap.ui.define(["sap/ui/core/library"], function() {
     interfaces: [],
     controls: ["ui5lab.fc.CandlestickChart", "ui5lab.fc.Candle"],
     elements: [],
-    noLibraryCSS: true,
+    noLibraryCSS: false,
     version: "1.0.0"
   });
 
