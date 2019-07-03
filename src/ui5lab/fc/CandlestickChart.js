@@ -16,9 +16,7 @@ sap.ui.define(
         properties: {
           width: "float",
           height: "float",
-          padding: "string",
-          colorPositive: "string",
-          colorNegative: "string"
+          padding: "string"
         },
         aggregations: {
           candles: { type: "ui5lab.fc.Candle", multiple: true }
@@ -81,8 +79,6 @@ sap.ui.define(
         var fMin = d3.min(aCandles, e => e.getLow());
         var fMax = d3.max(aCandles, e => e.getHigh());
         var fCandleBodyWidth = 0.8; // TODO заменить на ось категорий
-        var sPositive = oControl.getColorPositive(); // TODO заменить на стили
-        var sStroke = oControl.getColorNegative(); // TODO заменить на стили
 
         // подготовка пространства
         var svg = d3
@@ -133,26 +129,23 @@ sap.ui.define(
           .selectAll()
           .data(aCandles)
           .enter()
-          .append("g");
+          .append("g")
+          .classed("fcBullish", e => e.getClose() >= e.getOpen())
+          .classed("fcBearish", e => e.getClose() < e.getOpen());
 
         // тень свечи
         candles
           .append("line")
+          .classed("fcCandleShadow", true)
           .attr("x1", e => xScale(moment(e.getX()).toDate()) + fTickWidth / 2)
           .attr("x2", e => xScale(moment(e.getX()).toDate()) + fTickWidth / 2)
           .attr("y1", e => yScale(e.getHigh()))
-          .attr("y2", e => yScale(e.getLow()))
-          .attr("fill", e =>
-            e.getClose() >= e.getOpen() ? sPositive : sStroke
-          )
-          .attr("stroke-width", 1)
-          .attr("stroke", e =>
-            e.getClose() >= e.getOpen() ? sPositive : sStroke
-          );
+          .attr("y2", e => yScale(e.getLow()));
 
         // тело свечи
         candles
           .append("rect")
+          .classed("fcCandleBody", true)
           .attr(
             "x",
             e =>
@@ -167,11 +160,7 @@ sap.ui.define(
                 yScale(Math.max(e.getOpen(), e.getClose()))
             )
           )
-          .attr("width", fCandleBodyWidth * fTickWidth)
-          .attr("fill", e =>
-            e.getClose() >= e.getOpen() ? sPositive : sStroke
-          )
-          .attr("stroke-width", 0);
+          .attr("width", fCandleBodyWidth * fTickWidth);
       }
     });
   }

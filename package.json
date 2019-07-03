@@ -28,7 +28,7 @@
   },
   "devDependencies": {
     "eslint": "^6.0.1",
-    "@ui5/cli": "^1.5.4",
+    "@ui5/cli": "^1.5.5",
     "fs-extra": "^8.0.1",
     "ui5lab-browser": "^1.1.3"
   }
