@@ -2,12 +2,12 @@
 /* Global CSS for 'base' theme */
 /* =========================== */
 .fcBullish {
-  fill: green;
-  stroke: green;
+  fill: #006362;
+  stroke: #006362;
 }
 .fcBearish {
-  fill: red;
-  stroke: red;
+  fill: #ab0000;
+  stroke: #ab0000;
 }
 .fcCandleBody {
   stroke-width: 0;
