@@ -20,6 +20,13 @@
         "type": "sap.ui.model.json.JSONModel"
       }
     },
+    "resources": {
+      "css": [
+        {
+          "uri": "css/style.css"
+        }
+      ]
+    },
     "rootView": {
       "viewName": "ui5lab.demo.view.App",
       "type": "XML"
