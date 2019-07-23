@@ -10,7 +10,8 @@
         <fc:CandlestickChart items="{/}" 
           padding="5 20 25 60">
           <fc:layoutData>
-            <FlexItemData growFactor="1" minHeight="300px" />
+            <FlexItemData growFactor="1" 
+              minHeight="300px" />
           </fc:layoutData>
           <fc:items>
             <fc:Candle time="{time}" 
@@ -21,12 +22,12 @@
           </fc:items>
         </fc:CandlestickChart>
         <fci:CCIT items="{/}" 
-          height="50"
-          overboughtZone="20"
-          oversoldZone="-20"
+          height="50" 
+          overboughtZone="20" 
+          oversoldZone="-20" 
           padding="5 20 25 60">
           <fci:layoutData>
-            <FlexItemData growFactor="0" minHeight="100px" />
+            <FlexItemData minHeight="100px" />
           </fci:layoutData>
           <fci:items>
             <fci:CCITItem time="{time}" 
@@ -36,7 +37,7 @@
         <fc:LineChart items="{/}" 
           padding="5 20 25 60">
           <fc:layoutData>
-            <FlexItemData growFactor="0" minHeight="100px" />
+            <FlexItemData minHeight="100px" />
           </fc:layoutData>
           <fc:items>
             <fc:LineChartItem time="{time}" 
