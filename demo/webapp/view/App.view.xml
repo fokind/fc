@@ -1,21 +1,48 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" 
   xmlns="sap.m" 
   xmlns:fc="ui5lab.fc" 
+  xmlns:fci="ui5lab.fc.indicator" 
   displayBlock="true">
-  <App class="fcApp">
+  <App>
     <Page enableScrolling="false" 
       showHeader="false">
-      <VBox height="100%">
-        <fc:CandlestickChart candles="{/}" 
+      <VBox fitContainer="true">
+        <fc:CandlestickChart items="{/}" 
           padding="5 20 25 60">
-          <fc:candles>
-            <fc:Candle x="{time}" 
+          <fc:layoutData>
+            <FlexItemData growFactor="1" minHeight="300px" />
+          </fc:layoutData>
+          <fc:items>
+            <fc:Candle time="{time}" 
               open="{open}" 
               high="{high}" 
               low="{low}" 
               close="{close}"/>
-          </fc:candles>
+          </fc:items>
         </fc:CandlestickChart>
+        <fci:CCIT items="{/}" 
+          height="50"
+          overboughtZone="20"
+          oversoldZone="-20"
+          padding="5 20 25 60">
+          <fci:layoutData>
+            <FlexItemData growFactor="0" minHeight="100px" />
+          </fci:layoutData>
+          <fci:items>
+            <fci:CCITItem time="{time}" 
+              y="{= ${close} - ${open}}"/>
+          </fci:items>
+        </fci:CCIT>
+        <fc:LineChart items="{/}" 
+          padding="5 20 25 60">
+          <fc:layoutData>
+            <FlexItemData growFactor="0" minHeight="100px" />
+          </fc:layoutData>
+          <fc:items>
+            <fc:LineChartItem time="{time}" 
+              y="{close}"/>
+          </fc:items>
+        </fc:LineChart>
       </VBox>
     </Page>
   </App>
