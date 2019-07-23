@@ -21,16 +21,14 @@
     "build": "ui5 build"
   },
   "dependencies": {
-    "@openui5/sap.m": "^1.67.1",
-    "@openui5/sap.ui.core": "^1.67.1",
-    "@openui5/themelib_sap_belize": "^1.67.1",
-    "d3": "^5.9.7",
-    "moment": "^2.24.0"
+    "@openui5/sap.m": "^1.68.1",
+    "@openui5/sap.ui.core": "^1.68.1",
+    "@openui5/themelib_sap_belize": "^1.68.1"
   },
   "devDependencies": {
+    "@ui5/cli": "^1.6.0",
     "eslint": "^6.0.1",
-    "@ui5/cli": "^1.5.5",
-    "fs-extra": "^8.0.1",
+    "fs-extra": "^8.1.0",
     "ui5lab-browser": "^1.1.3"
   }
 }
