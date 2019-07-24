@@ -1,10 +1,11 @@
-sap.ui.define(["sap/ui/core/Control"], function(Control) {
+sap.ui.define(["ui5lab/fc/ChartItem", "ui5lab/fc/library"], function(
+  ChartItem
+) {
   "use strict";
 
-  return Control.extend("ui5lab.fc.Candle", {
+  return ChartItem.extend("ui5lab.fc.Candle", {
     metadata: {
       properties: {
-        x: "any",
         open: "float",
         high: "float",
         low: "float",

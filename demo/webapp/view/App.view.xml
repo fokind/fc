@@ -1,21 +1,54 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" 
   xmlns="sap.m" 
   xmlns:fc="ui5lab.fc" 
+  xmlns:fci="ui5lab.fc.indicator" 
   displayBlock="true">
-  <App class="fcApp">
+  <App>
     <Page enableScrolling="false" 
       showHeader="false">
-      <VBox height="100%">
-        <fc:CandlestickChart candles="{/}" 
+      <VBox fitContainer="true">
+        <fc:CandlestickChart items="{/candles}" 
+          start="2019-07-22T00:00:00.000Z"
+          end="2019-07-22T23:59:00.000Z"
+          timeframe="15"
           padding="5 20 25 60">
-          <fc:candles>
-            <fc:Candle x="{time}" 
+          <fc:layoutData>
+            <FlexItemData growFactor="1" 
+              minHeight="300px" />
+          </fc:layoutData>
+          <fc:items>
+            <fc:Candle time="{time}" 
               open="{open}" 
               high="{high}" 
               low="{low}" 
               close="{close}"/>
-          </fc:candles>
+          </fc:items>
         </fc:CandlestickChart>
+        <fci:CCIT items="{/indicatorOutputs/0/output}" 
+          start="2019-07-22T00:00:00.000Z"
+          end="2019-07-22T23:59:00.000Z"
+          timeframe="15"
+          overboughtZone="100" 
+          oversoldZone="-100" 
+          padding="5 20 25 60">
+          <fci:layoutData>
+            <FlexItemData minHeight="100px" />
+          </fci:layoutData>
+          <fci:items>
+            <fci:CCITItem time="{time}" 
+              y="{values/0}"/>
+          </fci:items>
+        </fci:CCIT>
+        <!-- <fc:LineChart items="{/}" 
+          padding="5 20 25 60">
+          <fc:layoutData>
+            <FlexItemData minHeight="100px" />
+          </fc:layoutData>
+          <fc:items>
+            <fc:LineChartItem time="{time}" 
+              y="{close}"/>
+          </fc:items>
+        </fc:LineChart> -->
       </VBox>
     </Page>
   </App>
