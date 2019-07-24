@@ -9,9 +9,10 @@ sap.ui.define(
       metadata: {
         library: "ui5lab.fc",
         properties: {
-          width: "float",
-          height: "float",
-          padding: "string"
+          padding: "string",
+          start: "string",
+          end: "string",
+          timeframe: "string"
         },
         aggregations: {
           items: { type: "ui5lab.fc.ChartItem", multiple: true }
@@ -39,8 +40,8 @@ sap.ui.define(
         ); //call superclass
       },
 
-      setPadding: function(sPadding) {
-        var aPadding = sPadding.split(" ");
+      setPadding: function(sValue) {
+        var aPadding = sValue.split(" ");
         var iPaddingLength = aPadding.length;
 
         this._fPaddingTop = +aPadding[0];
@@ -50,7 +51,7 @@ sap.ui.define(
           iPaddingLength === 1 ? 0 : iPaddingLength === 4 ? 3 : 1
         ];
 
-        this.setProperty("padding", sPadding, true);
+        this.setProperty("padding", sValue, true);
       },
 
       getTimeScale: function() {
@@ -58,11 +59,9 @@ sap.ui.define(
         var svg = div.select("svg");
         var plotArea = svg.select(".fcPlotArea");
         var fPlotAreaWidth = +plotArea.attr("width");
-        var aItems = this.getItems();
-        var dMin = moment(aItems[0].getTime()).toDate();
-        var iTimeframe = moment(aItems[1].getTime()).diff(dMin, "m");
-        var dMax = moment(aItems[aItems.length - 1].getTime())
-          .add(iTimeframe, "m")
+        var dMin = moment(this.getStart()).toDate();
+        var dMax = moment(this.getEnd())
+          .add(1, "m")
           .toDate();
 
         return d3

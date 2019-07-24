@@ -39,8 +39,10 @@ sap.ui.define(
         var fPlotAreaHeight = +plotArea.attr("height");
 
         // шкала x
-        var dMinX = moment(aItems[0].getTime()).toDate();
-        var iTimeframe = moment(aItems[1].getTime()).diff(dMinX, "m");
+        var sStart = oControl.getStart();
+        var sEnd = oControl.getEnd();
+        var dMinX = moment(sStart).toDate();
+        var iTimeframe = +oControl.getTimeframe();
 
         var xScale = oControl.getTimeScale();
 
@@ -69,6 +71,7 @@ sap.ui.define(
           .selectAll()
           .data(aItems)
           .enter()
+          .filter(e => moment(e.getTime()).isBetween(sStart, sEnd, 'm', '[]'))
           .append("g")
           .classed("fcBullish", e => e.getClose() >= e.getOpen())
           .classed("fcBearish", e => e.getClose() < e.getOpen());

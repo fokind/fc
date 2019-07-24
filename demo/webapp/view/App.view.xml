@@ -7,7 +7,10 @@
     <Page enableScrolling="false" 
       showHeader="false">
       <VBox fitContainer="true">
-        <fc:CandlestickChart items="{/}" 
+        <fc:CandlestickChart items="{/candles}" 
+          start="2019-07-22T00:00:00.000Z"
+          end="2019-07-22T23:59:00.000Z"
+          timeframe="15"
           padding="5 20 25 60">
           <fc:layoutData>
             <FlexItemData growFactor="1" 
@@ -21,20 +24,22 @@
               close="{close}"/>
           </fc:items>
         </fc:CandlestickChart>
-        <fci:CCIT items="{/}" 
-          height="50" 
-          overboughtZone="20" 
-          oversoldZone="-20" 
+        <fci:CCIT items="{/indicatorOutputs/0/output}" 
+          start="2019-07-22T00:00:00.000Z"
+          end="2019-07-22T23:59:00.000Z"
+          timeframe="15"
+          overboughtZone="100" 
+          oversoldZone="-100" 
           padding="5 20 25 60">
           <fci:layoutData>
             <FlexItemData minHeight="100px" />
           </fci:layoutData>
           <fci:items>
             <fci:CCITItem time="{time}" 
-              y="{= ${close} - ${open}}"/>
+              y="{values/0}"/>
           </fci:items>
         </fci:CCIT>
-        <fc:LineChart items="{/}" 
+        <!-- <fc:LineChart items="{/}" 
           padding="5 20 25 60">
           <fc:layoutData>
             <FlexItemData minHeight="100px" />
@@ -43,7 +48,7 @@
             <fc:LineChartItem time="{time}" 
               y="{close}"/>
           </fc:items>
-        </fc:LineChart>
+        </fc:LineChart> -->
       </VBox>
     </Page>
   </App>
