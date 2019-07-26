@@ -19,10 +19,10 @@ sap.ui.define(
 
       renderer: {},
 
-      onAfterRendering: function() {
+      _onResize: function(oEvent) {
         var oControl = this;
 
-        Chart.prototype.onAfterRendering.apply(oControl);
+        Chart.prototype._onResize.apply(oControl, [oEvent]);
 
         var aItems = oControl.getItems();
         if (!aItems || aItems.length < 2) return;
@@ -66,6 +66,8 @@ sap.ui.define(
 
         // область отображения данных
         var series = plotArea.select(".fcSeries");
+        series.selectAll("*")
+          .remove();
 
         var candles = series
           .selectAll()

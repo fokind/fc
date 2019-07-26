@@ -7,6 +7,8 @@ sap.ui.define(
       render: function(oRm, oControl) {
         oRm.write("<div");
         oRm.writeControlData(oControl);
+        oRm.addStyle("height", oControl.getHeight());
+        oRm.writeStyles();
         oRm.write(
           "><svg class='fcChart'><g class='fcPlotArea'><g class='fcAxisLeft'></g><g class='fcAxisBottom'></g><g class='fcSeries'></g></g></svg></div>"
         );

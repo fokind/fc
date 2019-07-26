@@ -1,14 +1,15 @@
 /* global d3 */
 
 sap.ui.define(
-  ["sap/ui/core/Control", "ui5lab/fc/library", "ui5lab/fc/thirdparty/d3"],
-  function(Control) {
+  ["sap/ui/core/Control", "sap/ui/core/ResizeHandler", "ui5lab/fc/library", "ui5lab/fc/thirdparty/d3"],
+  function(Control, ResizeHandler) {
     "use strict";
 
     return Control.extend("ui5lab.fc.Chart", {
       metadata: {
         library: "ui5lab.fc",
         properties: {
+          height: "string",
           padding: "string",
           start: "string",
           end: "string",
@@ -27,8 +28,30 @@ sap.ui.define(
         this._fPaddingLeft = 0;
 
         var oControl = this;
-        $(window).on("resize", oControl.rerender.bind(oControl));
-        // $(window).on("load", oControl.rerender.bind(oControl));
+        ResizeHandler.register(oControl, function(oEvent) {
+          oControl._onResize(oEvent);
+        }); // точно сработает один раз при первом запуске
+      },
+
+      _onResize: function(oEvent) {
+        var oControl = this;
+        var div = d3.select("#" + oControl.getId());
+        var fWidth = oEvent.size.width;
+        var fHeight = oEvent.size.height;
+
+        var fPaddingTop = oControl._fPaddingTop;
+        var fPaddingLeft = oControl._fPaddingLeft;
+
+        var svg = div
+          .select("svg")
+          .attr("width", fWidth)
+          .attr("height", fHeight - 4); // по какой-то причине именно с такой поправкой работает корректно
+
+        svg
+          .select(".fcPlotArea")
+          .attr("transform", `translate(${fPaddingLeft}, ${fPaddingTop})`)
+          .attr("width", fWidth - fPaddingLeft - oControl._fPaddingRight)
+          .attr("height", fHeight - oControl._fPaddingBottom - fPaddingTop);
       },
 
       // без этого связывается только 100 элементов
@@ -79,33 +102,6 @@ sap.ui.define(
           .scaleLinear()
           .range([fPlotAreaHeight, 0])
           .domain([fMin, fMax]);
-      },
-
-      onAfterRendering: function() {
-        var oControl = this;
-        // без этого запускается раньше, чем посчитался размер элементов
-        // $(window).on("load", function() { // правильно ли использовать этот глобальный объект?
-        var div = d3.select("#" + oControl.getId());
-        var parent = div.node().parentNode;
-        var fWidth = parent.offsetWidth;
-        var fHeight = parent.offsetHeight;
-
-        var fPaddingTop = oControl._fPaddingTop;
-        var fPaddingLeft = oControl._fPaddingLeft;
-
-        var svg = div
-          .select("svg")
-          .attr("width", fWidth)
-          .attr("height", fHeight);
-
-        svg
-          .select(".fcPlotArea")
-          .attr("transform", `translate(${fPaddingLeft}, ${fPaddingTop})`)
-          .attr("width", fWidth - fPaddingLeft - oControl._fPaddingRight)
-          .attr("height", fHeight - oControl._fPaddingBottom - fPaddingTop);
-
-        // oControl.onLoadAfterRendering(); //.bind(oControl); // UNDONE нужно ли задавать контекст?
-        // });
       }
     });
   }
