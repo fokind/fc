@@ -5,7 +5,7 @@ Project in work.
 
 ## Author
 Dmitry Fokin
-- LinkedIn: // ссылка
+- LinkedIn: [www.linkedin.com/in/fokind/](https://www.linkedin.com/in/fokind/)
 
 ## License
 [MIT](LICENSE)

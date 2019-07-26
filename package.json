@@ -1,6 +1,6 @@
 {
   "name": "openui5-financial-charts",
-  "version": "1.0.1-alpha.0",
+  "version": "1.0.1-alpha.1",
   "description": "OpenUI5 Financial Charts based on d3.js",
   "repository": {
     "type": "git",
@@ -11,6 +11,21 @@
     "namespace": "ui5lab.fc",
     "icon": "business-objects-experience",
     "displayName": "Financial Charts"
+  },
+  "keywords": [
+    "ui5",
+    "openui5",
+    "d3",
+    "stock",
+    "exchange",
+    "candle",
+    "candlestick",
+    "financial",
+    "chart",
+    "indicator"
+  ],
+  "author": {
+    "name": "Dmitry Fokin"
   },
   "license": "MIT",
   "private": false,
