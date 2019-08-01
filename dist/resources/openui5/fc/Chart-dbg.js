@@ -100,6 +100,8 @@ sap.ui.define(
         var oControl = this;
         var div = d3.select("#" + oControl.getId());
 
+        if (!div.node()) return;
+
         var fWidth = div.node().offsetWidth;
         var fHeight = div.node().offsetHeight;
 

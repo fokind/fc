@@ -25,6 +25,8 @@ sap.ui.define(
 
         var div = d3.select("#" + oParent.getId());
 
+        if (!div.node()) return;
+
         var fWidth = div.node().offsetWidth;
         var fHeight = div.node().offsetHeight;
 
