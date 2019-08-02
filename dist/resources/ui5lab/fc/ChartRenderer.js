@@ -1,1 +1,0 @@
-sap.ui.define([],function(){"use strict";return{render:function(t,e){t.write("<div");t.writeControlData(e);t.addStyle("height",e.getHeight());t.writeStyles();t.write("><svg class='fcChart'><g class='fcPlotArea'><g class='fcAxisLeft'></g><g class='fcAxisBottom'></g><g class='fcSeries'></g></g></svg></div>")}}},true);

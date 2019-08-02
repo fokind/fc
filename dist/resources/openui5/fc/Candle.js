@@ -1,0 +1,1 @@
+sap.ui.define(["openui5/fc/SeriesItem","openui5/fc/library"],function(e){"use strict";return e.extend("openui5.fc.Candle",{metadata:{properties:{open:"float",high:"float",low:"float",close:"float"}},setLow:function(e){this.setProperty("low",e);this.fireEvent("minChange",{value:e})},setHigh:function(e){this.setProperty("high",e);this.fireEvent("maxChange",{value:e})}})});

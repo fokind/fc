@@ -1,6 +1,6 @@
 {
   "name": "openui5-financial-charts",
-  "version": "1.0.1-alpha.1",
+  "version": "1.0.2-alpha.1",
   "description": "OpenUI5 Financial Charts based on d3.js",
   "repository": {
     "type": "git",
@@ -41,7 +41,7 @@
     "@openui5/themelib_sap_belize": "^1.68.1"
   },
   "devDependencies": {
-    "@ui5/cli": "^1.6.0",
+    "@ui5/cli": "^1.7.0",
     "eslint": "^6.0.1",
     "fs-extra": "^8.1.0",
     "ui5lab-browser": "^1.1.3"

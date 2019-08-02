@@ -1,0 +1,54 @@
+{
+  "_version": "1.9.0",
+  "sap.app": {
+    "id": "openui5.fc",
+    "type": "library",
+    "embeds": [],
+    "applicationVersion": {
+      "version": "1.0.2-alpha.1"
+    },
+    "title": "UI5 library: openui5.fc",
+    "description": "UI5 library: openui5.fc",
+    "resources": "resources.json",
+    "offline": true
+  },
+  "sap.ui": {
+    "technology": "UI5",
+    "supportedThemes": [
+      "base",
+      "sap_belize",
+      "sap_belize_plus",
+      "sap_hcb"
+    ]
+  },
+  "sap.ui5": {
+    "dependencies": {
+      "minUI5Version": "1.68",
+      "libs": {
+        "sap.ui.core": {
+          "minVersion": "1.68.1"
+        }
+      }
+    },
+    "library": {
+      "i18n": false,
+      "content": {
+        "controls": [
+          "openui5.fc.Candle",
+          "openui5.fc.CandlestickChart",
+          "openui5.fc.Chart",
+          "openui5.fc.LineChart",
+          "openui5.fc.LineChartItem",
+          "openui5.fc.Series",
+          "openui5.fc.SeriesItem",
+          "openui5.fc.SteppedLineChart",
+          "openui5.fc.TimeAxis",
+          "openui5.fc.ValueAxis"
+        ],
+        "elements": [],
+        "types": [],
+        "interfaces": []
+      }
+    }
+  }
+}

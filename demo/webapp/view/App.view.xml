@@ -1,46 +1,44 @@
 <mvc:View xmlns:mvc="sap.ui.core.mvc" 
   xmlns="sap.m" 
-  xmlns:fc="ui5lab.fc" 
-  xmlns:fci="ui5lab.fc.indicator" 
+  xmlns:chart="openui5.fc"
+  xmlns:indicator="openui5.fc.indicator" 
   displayBlock="true">
   <App>
-    <Page showHeader="false">
-      <VBox>
-        <fc:CandlestickChart items="{/candles}" 
-          start="2019-07-23T00:00:00"
-          end="2019-07-23T23:59:00"
-          height="400px"
-          timeframe="15"
-          padding="5 20 25 60">
-          <fc:items>
-            <fc:Candle time="{time}" 
-              open="{open}" 
-              high="{high}" 
-              low="{low}" 
-              close="{close}"/>
-          </fc:items>
-        </fc:CandlestickChart>
-        <fci:CCIT items="{/indicatorOutputs/0/output}" 
-          start="2019-07-23T00:00:00"
-          end="2019-07-23T23:59:00"
-          timeframe="15"
+    <Page enableScrolling="false" 
+      showHeader="false">
+      <chart:Chart height="400px"
+        padding="5 20 25 60"
+        start="{view>/start}"
+        end="{view>/end}"
+        timeframe="15">
+        <chart:CandlestickChart items="{/candles}">
+          <chart:Candle time="{time}" 
+            open="{open}" 
+            high="{high}" 
+            low="{low}" 
+            close="{close}"/>
+        </chart:CandlestickChart>
+      </chart:Chart>
+      <chart:Chart height="200px"
+        padding="5 20 25 60"
+        start="{view>/start}"
+        end="{view>/end}"
+        timeframe="15">
+        <chart:SteppedLineChart items="{/candles}">
+          <chart:LineChartItem time="{time}" value="{close}"/>
+        </chart:SteppedLineChart>
+      </chart:Chart>
+      <chart:Chart height="100px"
+        padding="5 20 25 60"
+        start="{view>/start}"
+        end="{view>/end}"
+        timeframe="15">
+        <indicator:CCIOZ items="{/indicatorOutputs/0/output}" 
           overboughtZone="100"
-          oversoldZone="-100"
-          height="80px"
-          padding="5 20 25 60">
-          <fci:items>
-            <fci:CCITItem time="{time}" 
-              y="{values/0}"/>
-          </fci:items>
-        </fci:CCIT>
-        <!-- <fc:LineChart items="{/}" 
-          padding="5 20 25 60">
-          <fc:items>
-            <fc:LineChartItem time="{time}" 
-              y="{close}"/>
-          </fc:items>
-        </fc:LineChart> -->
-      </VBox>
+          oversoldZone="-100">
+          <chart:LineChartItem time="{time}" value="{values/0}"/>
+        </indicator:CCIOZ>
+      </chart:Chart>
     </Page>
   </App>
 </mvc:View>

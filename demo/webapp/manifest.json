@@ -11,12 +11,14 @@
       "libs": {
         "sap.ui.core": {},
         "sap.m": {},
-        "ui5lab.fc": {}
+        "openui5.fc": {}
       }
     },
     "models": {
       "": {
-        "uri": "./data/buffer.json",
+        "type": "sap.ui.model.json.JSONModel"
+      },
+      "view": {
         "type": "sap.ui.model.json.JSONModel"
       }
     },
