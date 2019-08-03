@@ -1,4 +1,4 @@
-sap.ui.define(["openui5/fc/SeriesItem", "./library"], function(SeriesItem) {
+sap.ui.define(["./SeriesItem", "./library"], function(SeriesItem) {
   "use strict";
 
   return SeriesItem.extend("openui5.fc.LineChartItem", {
@@ -8,10 +8,12 @@ sap.ui.define(["openui5/fc/SeriesItem", "./library"], function(SeriesItem) {
       }
     },
 
-    setValue: function(fValue) {
-      this.setProperty("value", fValue);
-      this.fireEvent("minChange", { value: fValue });
-      this.fireEvent("maxChange", { value: fValue });
+    _getMin: function() {
+      return this.getValue();
+    },
+
+    _getMax: function() {
+      return this.getValue();
     }
   });
 });

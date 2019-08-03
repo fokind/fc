@@ -2,10 +2,10 @@
 
 sap.ui.define(
   [
-    "openui5/fc/Series",
-    "openui5/fc/library",
-    "openui5/fc/thirdparty/d3",
-    "openui5/fc/thirdparty/moment-with-locales"
+    "./Series",
+    "./library",
+    "./thirdparty/d3",
+    "./thirdparty/moment-with-locales"
   ],
   function(Series) {
     "use strict";
