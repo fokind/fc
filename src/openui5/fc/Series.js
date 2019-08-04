@@ -14,6 +14,15 @@ sap.ui.define(["sap/ui/core/Control", "./library", "./thirdparty/d3"], function(
       defaultAggregation: "items"
     },
 
+    // без этого связывается только 100 элементов
+    bindAggregation: function(sName, oBindingInfo) {
+      if (!oBindingInfo.length) oBindingInfo.length = 1000000; // Max number of lines to display
+      return sap.ui.core.Control.prototype.bindAggregation.apply(
+        this,
+        arguments
+      ); //call superclass
+    },
+
     addItem: function(oValue) {
       this.addAggregation("items", oValue, true);
     },

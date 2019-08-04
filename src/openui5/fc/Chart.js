@@ -44,17 +44,17 @@ sap.ui.define(
 
       setStart: function(sValue) {
         this.getAggregation("_timeAxis").setStart(sValue);
-        this.setProperty("start", sValue);
+        this.setProperty("start", sValue, true);
       },
 
       setEnd: function(sValue) {
         this.getAggregation("_timeAxis").setEnd(sValue);
-        this.setProperty("end", sValue);
+        this.setProperty("end", sValue, true);
       },
 
       setTimeframe: function(sValue) {
         this.getAggregation("_timeAxis").setTimeframe(sValue);
-        this.setProperty("timeframe", sValue);
+        this.setProperty("timeframe", sValue, true);
       },
 
       // без этого связывается только 100 элементов
