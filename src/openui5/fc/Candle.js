@@ -11,6 +11,22 @@ sap.ui.define(["./SeriesItem", "./library"], function(SeriesItem) {
       }
     },
 
+    setOpen: function(fValue) {
+      this.setProperty("open", fValue, true);
+    },
+
+    setHigh: function(fValue) {
+      this.setProperty("high", fValue, true);
+    },
+
+    setLow: function(fValue) {
+      this.setProperty("low", fValue, true);
+    },
+
+    setClose: function(fValue) {
+      this.setProperty("close", fValue, true);
+    },
+
     _getMin: function() {
       return this.getLow();
     },
