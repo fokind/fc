@@ -20,7 +20,7 @@ sap.ui.define(["jquery.sap.global", "sap/ui/core/library"], function() {
     ],
     elements: [],
     noLibraryCSS: false,
-    version: "1.0.3-alpha.0"
+    version: "1.0.3-alpha.2"
   });
 
   return openui5.fc;

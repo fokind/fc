@@ -19,6 +19,18 @@ sap.ui.define(["sap/ui/core/Control", "./library", "./thirdparty/d3"], function(
       this._scale = d3.scaleTime();
     },
 
+    setStart: function(sValue) {
+      this.setProperty("start", sValue, true);
+    },
+
+    setEnd: function(sValue) {
+      this.setProperty("end", sValue, true);
+    },
+
+    setTimeframe: function(sValue) {
+      this.setProperty("timeframe", sValue, true);
+    },
+
     _draw: function() {
       var oControl = this;
       var oParent = oControl.getParent();
