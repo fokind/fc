@@ -11,16 +11,14 @@ sap.ui.define(
 
         var sUri = "./data/buffer.json";
         var oChart0 = this.byId("chart0");
-        // var oChart1 = this.byId("chart1");
-        // var oChart2 = this.byId("chart2");
+        var oChart1 = this.byId("chart1");
+        var oChart2 = this.byId("chart2");
 
-        oModel.loadData(sUri);
-
-        setTimeout(() => {
+        oModel.loadData(sUri).then(() => {
           oChart0.refresh();
-          // oChart1.refresh();
-          // oChart2.refresh();
-        }, 1000);
+          oChart1.refresh();
+          oChart2.refresh();
+        });
       }
     });
   }

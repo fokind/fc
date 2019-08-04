@@ -21,7 +21,7 @@
             close="{close}"/>
         </chart:CandlestickChart>
       </chart:Chart>
-      <!-- <chart:Chart id="chart1"
+      <chart:Chart id="chart1"
         height="200px"
         padding="5 20 25 60"
         start="{view>/start}"
@@ -42,7 +42,7 @@
           oversoldZone="-100">
           <chart:LineChartItem time="{time}" value="{values/0}"/>
         </indicator:CCIOZ>
-      </chart:Chart> -->
+      </chart:Chart>
     </Page>
   </App>
 </mvc:View>
