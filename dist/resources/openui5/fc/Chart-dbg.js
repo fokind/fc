@@ -4,11 +4,11 @@ sap.ui.define(
   [
     "sap/ui/core/Control",
     "sap/ui/core/ResizeHandler",
-    "openui5/fc/TimeAxis",
-    "openui5/fc/ValueAxis",
-    "openui5/fc/library",
-    "openui5/fc/thirdparty/d3",
-    "openui5/fc/thirdparty/moment-with-locales"
+    "./TimeAxis",
+    "./ValueAxis",
+    "./library",
+    "./thirdparty/d3",
+    "./thirdparty/moment-with-locales"
   ],
   function(Control, ResizeHandler, TimeAxis, ValueAxis) {
     "use strict";
@@ -22,9 +22,7 @@ sap.ui.define(
           padding: { type: "string", defaultValue: "0" },
           start: "string",
           end: "string",
-          timeframe: "string",
-          max: "string",
-          min: "string"
+          timeframe: "string"
         },
         aggregations: {
           _timeAxis: { type: "openui5.fc.TimeAxis", multiple: false },
@@ -59,18 +57,8 @@ sap.ui.define(
         this.setProperty("timeframe", sValue);
       },
 
-      setMin: function(sValue) {
-        this.getAggregation("_valueAxis").setMin(sValue);
-        this.setProperty("min", sValue);
-      },
-
-      setMax: function(sValue) {
-        this.getAggregation("_valueAxis").setMax(sValue);
-        this.setProperty("max", sValue);
-      },
-
       // без этого связывается только 100 элементов
-      bindAggregation: function(sKey, oBindingInfo) {
+      bindAggregation: function(sName, oBindingInfo) {
         if (!oBindingInfo.length) oBindingInfo.length = 1000000; // Max number of lines to display
         return sap.ui.core.Control.prototype.bindAggregation.apply(
           this,
@@ -93,6 +81,26 @@ sap.ui.define(
       },
 
       onAfterRendering: function() {
+        this._draw();
+      },
+
+      refresh: function() {
+        var oControl = this;
+        // посчитать мин макс
+        var aSeries = oControl.getSeries();
+        var oValueAxis = this.getAggregation("_valueAxis");
+
+        var fMin = d3.min(aSeries, function(e) {
+          return e._getMin();
+        });
+        oValueAxis.setMin(fMin);
+
+        var fMax = d3.max(aSeries, function(e) {
+          return e._getMax();
+        });
+        oValueAxis.setMax(fMax);
+
+        // перерисовать
         this._draw();
       },
 

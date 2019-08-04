@@ -1,6 +1,4 @@
-sap.ui.define(["openui5/fc/SeriesItem", "openui5/fc/library"], function(
-  SeriesItem
-) {
+sap.ui.define(["./SeriesItem", "./library"], function(SeriesItem) {
   "use strict";
 
   return SeriesItem.extend("openui5.fc.Candle", {
@@ -13,14 +11,12 @@ sap.ui.define(["openui5/fc/SeriesItem", "openui5/fc/library"], function(
       }
     },
 
-    setLow: function(fValue) {
-      this.setProperty("low", fValue);
-      this.fireEvent("minChange", { value: fValue });
+    _getMin: function() {
+      return this.getLow();
     },
 
-    setHigh: function(fValue) {
-      this.setProperty("high", fValue);
-      this.fireEvent("maxChange", { value: fValue });
+    _getMax: function() {
+      return this.getHigh();
     }
   });
 });
