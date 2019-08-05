@@ -9,6 +9,10 @@ sap.ui.define(["sap/ui/core/Control", "./library"], function(Control) {
       }
     },
 
+    setTime: function(sValue) {
+      this.setProperty("time", sValue, true);
+    },
+
     _getMin: function() {
       return undefined;
     },

@@ -8,6 +8,10 @@ sap.ui.define(["./SeriesItem", "./library"], function(SeriesItem) {
       }
     },
 
+    setValue: function(fValue) {
+      this.setProperty("value", fValue, true);
+    },
+
     _getMin: function() {
       return this.getValue();
     },
